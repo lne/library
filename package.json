@@ -1,44 +1,30 @@
 {
-  "name": "@zxing/library",
-  "version": "0.18.3",
-  "description": "TypeScript port of ZXing multi-format 1D/2D barcode image processing library.",
+  "name": "@lne/zxing-multi-qr-library",
+  "version": "0.1.0",
+  "description": "TypeScript port of ZXing multi-qr-code 1library.",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
-    "reader",
-    "writer",
-    "decode",
-    "encode",
-    "scanner",
-    "generator",
-    "barcode",
-    "qr-code",
-    "barcode 1d",
-    "barcode 2d",
     "typescript",
     "zxing"
   ],
   "authors": [
     {
-      "name": "Adrian Toșcă"
-    },
-    {
-      "name": "David Werth",
-      "email": "werth.david@gmail.com"
-    },
-    {
-      "name": "Luiz Barni",
-      "email": "machado@odahcam.com"
+      "name": "Dongfeng Wei",
+      "email": "dongfeng.wei@hotmail.com"
     }
   ],
   "engines": {
     "node": ">= 10.4.0"
   },
   "license": "MIT",
-  "bugs": "https://github.com/zxing-js/library/issues/new",
+  "bugs": "https://github.com/lne/library/issues/new",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zxing-js/library"
+    "url": "https://github.com/lne/library"
   },
-  "homepage": "https://zxing-js.github.io/library/",
+  "homepage": "https://github.con/lne/library/",
   "private": false,
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -96,7 +82,7 @@
     "ts-node": "^9.0.0",
     "tsconfig-paths": "^3.9.0",
     "tslib": "^2.0.3",
-    "typedoc": "^0.19.2",
+    "typedoc": "^0.20.34",
     "typedoc-plugin-external-module-name": "^4.0.3",
     "typedoc-plugin-pages": "^1.0.1",
     "typescript": "^4.0.5",
