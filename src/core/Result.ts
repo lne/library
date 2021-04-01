@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-/*namespace com.google.zxing {*/
+/* namespace com.google.zxing { */
 
-/*import java.util.EnumMap;*/
-/*import java.util.Map;*/
+/* import java.util.EnumMap; */
+/* import java.util.Map; */
 import ResultPoint from './ResultPoint';
 import BarcodeFormat from './BarcodeFormat';
 import System from './util/System';
@@ -142,83 +142,91 @@ export default class Result {
     public getText(): string {
         return this.text;
     }
+  }
 
-    /**
-     * @return raw bytes encoded by the barcode, if applicable, otherwise {@code null}
-     */
-    public getRawBytes(): Uint8Array {
-        return this.rawBytes;
-    }
+  /**
+   * @return raw text encoded by the barcode
+ */
+  public getText(): string {
+    return this.text;
+  }
 
-    /**
-     * @return how many bits of {@link #getRawBytes()} are valid; typically 8 times its length
-     * @since 3.3.0
-     */
-    public getNumBits(): number /*int*/ {
-        return this.numBits;
-    }
+  /**
+   * @return raw bytes encoded by the barcode, if applicable, otherwise {@code null}
+ */
+  public getRawBytes(): Uint8Array {
+    return this.rawBytes;
+  }
 
-    /**
-     * @return points related to the barcode in the image. These are typically points
-     *         identifying finder patterns or the corners of the barcode. The exact meaning is
-     *         specific to the type of barcode that was decoded.
-     */
-    public getResultPoints(): Array<ResultPoint> {
-        return this.resultPoints;
-    }
+  /**
+   * @return how many bits of {@link #getRawBytes()} are valid; typically 8 times its length
+   * @since 3.3.0
+ */
+  public getNumBits(): number /* int */ {
+    return this.numBits;
+  }
 
-    /**
-     * @return {@link BarcodeFormat} representing the format of the barcode that was decoded
-     */
-    public getBarcodeFormat(): BarcodeFormat {
-        return this.format;
-    }
+  /**
+   * @return points related to the barcode in the image. These are typically points
+   *         identifying finder patterns or the corners of the barcode. The exact meaning is
+   *         specific to the type of barcode that was decoded.
+ */
+  public getResultPoints(): Array<ResultPoint> {
+    return this.resultPoints;
+  }
 
-    /**
-     * @return {@link Map} mapping {@link ResultMetadataType} keys to values. May be
-     *   {@code null}. This contains optional metadata about what was detected about the barcode,
-     *   like orientation.
-     */
-    public getResultMetadata(): Map<ResultMetadataType, Object> {
-        return this.resultMetadata;
-    }
+  /**
+   * @return {@link BarcodeFormat} representing the format of the barcode that was decoded
+ */
+  public getBarcodeFormat(): BarcodeFormat {
+    return this.format;
+  }
 
-    public putMetadata(type: ResultMetadataType, value: Object): void {
-        if (this.resultMetadata === null) {
-            this.resultMetadata = new Map<ResultMetadataType, Object>();
-        }
-        this.resultMetadata.set(type, value);
-    }
+  /**
+   * @return {@link Map} mapping {@link ResultMetadataType} keys to values. May be
+   *   {@code null}. This contains optional metadata about what was detected about the barcode,
+   *   like orientation.
+ */
+  public getResultMetadata(): Map<ResultMetadataType, Object> {
+    return this.resultMetadata;
+  }
 
-    public putAllMetadata(metadata: Map<ResultMetadataType, Object>): void {
-        if (metadata !== null) {
-            if (this.resultMetadata === null) {
-                this.resultMetadata = metadata;
-            } else {
-                this.resultMetadata = new Map(metadata);
-            }
-        }
+  public putMetadata(type: ResultMetadataType, value: Object): void {
+    if (this.resultMetadata === null) {
+      this.resultMetadata = new Map<ResultMetadataType, Object>();
     }
+    this.resultMetadata.set(type, value);
+  }
 
-    public addResultPoints(newPoints: Array<ResultPoint>): void {
-        const oldPoints = this.resultPoints;
-        if (oldPoints === null) {
-            this.resultPoints = newPoints;
-        } else if (newPoints !== null && newPoints.length > 0) {
-            const allPoints = new Array<ResultPoint>(oldPoints.length + newPoints.length);
-            System.arraycopy(oldPoints, 0, allPoints, 0, oldPoints.length);
-            System.arraycopy(newPoints, 0, allPoints, oldPoints.length, newPoints.length);
-            this.resultPoints = allPoints;
-        }
+  public putAllMetadata(metadata: Map<ResultMetadataType, Object>): void {
+    if (metadata !== null) {
+      if (this.resultMetadata === null) {
+        this.resultMetadata = metadata;
+      } else {
+        this.resultMetadata = new Map(metadata);
+      }
     }
+  }
 
-    public getTimestamp(): number/*long*/ {
-        return this.timestamp;
+  public addResultPoints(newPoints: Array<ResultPoint>): void {
+    const oldPoints = this.resultPoints;
+    if (oldPoints === null) {
+      this.resultPoints = newPoints;
+    } else if (newPoints !== null && newPoints.length > 0) {
+      const allPoints = new Array<ResultPoint>(oldPoints.length + newPoints.length);
+      System.arraycopy(oldPoints, 0, allPoints, 0, oldPoints.length);
+      System.arraycopy(newPoints, 0, allPoints, oldPoints.length, newPoints.length);
+      this.resultPoints = allPoints;
     }
+  }
 
-    /*@Override*/
-    public toString(): string {
-        return this.text;
-    }
+  public getTimestamp(): number/* long */ {
+    return this.timestamp;
+  }
+
+  /* @Override */
+  public toString(): string {
+    return this.text;
+  }
 
 }

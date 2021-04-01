@@ -32,17 +32,16 @@ import Result from '../Result';
  * @see com.google.zxing.Reader
  * @author Sean Owen
  */
-export default /*public*/ interface MultipleBarcodeReader {
+export default /* public */ interface MultipleBarcodeReader {
 
   /**
    * @throws NotFoundException
-   * @override decodeMultiple
-   */
+ */
   decodeMultiple(image: BinaryBitmap): Result[];
 
   /**
    * @throws NotFoundException
-   */
+ */
   decodeMultiple(image: BinaryBitmap, hints: Map<DecodeHintType, any>): Result[];
 
 }

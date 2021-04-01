@@ -21,14 +21,14 @@ import { int } from '../../../customTypings';
 /**
  * @author Guenther Grau
  */
-export default /*final*/ class Codeword {
+export default /* final */ class Codeword {
 
-  private static /*final*/ BARCODE_ROW_UNKNOWN: int = -1;
+  private static /* final */ BARCODE_ROW_UNKNOWN: int = -1;
 
-  private /*final*/ startX: int;
-  private /*final*/ endX: int;
-  private /*final*/ bucket: int;
-  private /*final*/ value: int;
+  private /* final */ startX: int;
+  private /* final */ endX: int;
+  private /* final */ bucket: int;
+  private /* final */ value: int;
   private rowNumber: int = Codeword.BARCODE_ROW_UNKNOWN;
 
   constructor(startX: int, endX: int, bucket: int, value: int) {
@@ -74,7 +74,7 @@ export default /*final*/ class Codeword {
     return this.rowNumber;
   }
 
-  setRowNumber(rowNumber: int ): void {
+  setRowNumber(rowNumber: int): void {
     this.rowNumber = rowNumber;
   }
 

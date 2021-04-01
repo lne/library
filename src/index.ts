@@ -1,5 +1,3 @@
-export * from './browser';
-
 // Exceptions
 export { default as ArgumentException } from './core/ArgumentException';
 export { default as ArithmeticException } from './core/ArithmeticException';
@@ -131,3 +129,8 @@ export { default as MultipleBarcodeReader } from './core/multi/MultipleBarcodeRe
 export { default as QRCodeMultiReader } from './core/multi/qrcode/QRCodeMultiReader';
 export { default as MultiDetector } from './core/multi/qrcode/detector/MultiDetector';
 export { default as MultiFinderPatternFinder } from './core/multi/qrcode/detector/MultiFinderPatternFinder';
+
+
+// extension/sources
+export { default as ColorFormat } from './extension/sources/ColorFormat';
+export { default as MultiFormatLuminanceSource } from './extension/sources/MultiFormatLuminanceSource';

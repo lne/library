@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-/*namespace com.google.zxing.qrcode {*/
+/* namespace com.google.zxing.qrcode { */
 
 import BarcodeFormat from '../BarcodeFormat';
 import BinaryBitmap from '../BinaryBitmap';
@@ -32,8 +32,8 @@ import QRCodeDecoderMetaData from './decoder/QRCodeDecoderMetaData';
 import Detector from './detector/Detector';
 
 
-/*import java.util.List;*/
-/*import java.util.Map;*/
+/* import java.util.List; */
+/* import java.util.Map; */
 
 /**
  * This implementation can detect and decode QR Codes in an image.
@@ -122,7 +122,7 @@ export default class QRCodeReader implements Reader {
     return result;
   }
 
-  /*@Override*/
+  /* @Override */
   public reset(): void {
     // do nothing
   }
@@ -134,8 +134,8 @@ export default class QRCodeReader implements Reader {
    * case.
    *
    * @see com.google.zxing.datamatrix.DataMatrixReader#extractPureBits(BitMatrix)
-   */
-  private static extractPureBits(image: BitMatrix): BitMatrix /*throws NotFoundException */ {
+ */
+  private static extractPureBits(image: BitMatrix): BitMatrix /* throws NotFoundException */ {
 
     const leftTopBlack: Int32Array = image.getTopLeftOnBit();
     const rightBottomBlack: Int32Array = image.getBottomRightOnBit();
@@ -143,7 +143,7 @@ export default class QRCodeReader implements Reader {
       throw new NotFoundException();
     }
 
-    const moduleSize: number /*float*/ = this.moduleSize(leftTopBlack, image);
+    const moduleSize: number /* float */ = this.moduleSize(leftTopBlack, image);
 
     let top = leftTopBlack[1];
     let bottom = rightBottomBlack[1];
@@ -178,14 +178,14 @@ export default class QRCodeReader implements Reader {
     // Push in the "border" by half the module width so that we start
     // sampling in the middle of the module. Just in case the image is a
     // little off, this will help recover.
-    const nudge = /*(int) */Math.floor(moduleSize / 2.0);
+    const nudge = /* (int) */Math.floor(moduleSize / 2.0);
     top += nudge;
     left += nudge;
 
     // But careful that this does not sample off the edge
     // "right" is the farthest-right valid pixel location -- right+1 is not necessarily
     // This is positive by how much the inner x loop below would be too large
-    const nudgedTooFarRight = left + /*(int) */Math.floor((matrixWidth - 1) * moduleSize) - right;
+    const nudgedTooFarRight = left + /* (int) */Math.floor((matrixWidth - 1) * moduleSize) - right;
     if (nudgedTooFarRight > 0) {
       if (nudgedTooFarRight > nudge) {
         // Neither way fits; abort
@@ -194,7 +194,7 @@ export default class QRCodeReader implements Reader {
       left -= nudgedTooFarRight;
     }
     // See logic above
-    const nudgedTooFarDown = top + /*(int) */Math.floor((matrixHeight - 1) * moduleSize) - bottom;
+    const nudgedTooFarDown = top + /* (int) */Math.floor((matrixHeight - 1) * moduleSize) - bottom;
     if (nudgedTooFarDown > 0) {
       if (nudgedTooFarDown > nudge) {
         // Neither way fits; abort
@@ -206,9 +206,9 @@ export default class QRCodeReader implements Reader {
     // Now just read off the bits
     const bits = new BitMatrix(matrixWidth, matrixHeight);
     for (let y = 0; y < matrixHeight; y++) {
-      const iOffset = top + /*(int) */Math.floor(y * moduleSize);
+      const iOffset = top + /* (int) */Math.floor(y * moduleSize);
       for (let x = 0; x < matrixWidth; x++) {
-        if (image.get(left + /*(int) */Math.floor(x * moduleSize), iOffset)) {
+        if (image.get(left + /* (int) */Math.floor(x * moduleSize), iOffset)) {
           bits.set(x, y);
         }
       }
@@ -216,9 +216,9 @@ export default class QRCodeReader implements Reader {
     return bits;
   }
 
-  private static moduleSize(leftTopBlack: Int32Array, image: BitMatrix): number/*float*/ /*throws NotFoundException */ {
-    const height: number /*int*/ = image.getHeight();
-    const width: number /*int*/ = image.getWidth();
+  private static moduleSize(leftTopBlack: Int32Array, image: BitMatrix): number/* float */ /* throws NotFoundException */ {
+    const height: number /* int */ = image.getHeight();
+    const width: number /* int */ = image.getWidth();
     let x = leftTopBlack[0];
     let y = leftTopBlack[1];
     let inBlack: boolean = true;
